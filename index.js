@@ -1,16 +1,15 @@
-const express=require('express');
-const request=require('request-promise');
+import express, { json } from 'express';
+import request from 'request-promise';
 require('dotenv').config();
 
-// console.log(process.env.SCRAPPER_API_KEY);
-const APIKEY=process.env.SCRAPPER_API_KEY;
+// const APIKEY=process.env.SCRAPPER_API_KEY;
 // const generateScrapperURL(APIKEY)=`http://api.scraperapi.com?api_key=${APIKEY}&autoparse=true`;
 
-const generateScrapperURL=(APIKEY)=`http://api.scraperapi.com?api_key=${APIKEY}&autoparse=true`;
+const generateScrapperURL=(APIKEY)=>`http://api.scraperapi.com?api_key=${APIKEY}&autoparse=true`;
 
 const app=express();
 const PORT = process.env.PORT || 5000;
-app.use(express.json());
+app.use(json());
 app.get('/',(req,res) => {
 
     res.send("Amazon Scrapping api !");
